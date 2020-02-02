@@ -1,0 +1,93 @@
+[
+    {
+        "Date_of_birth": "1971-05-18", 
+        "First_name": "Nathan", 
+        "Height": "155", 
+        "Last_name": "Astle", 
+        "Salary": 41000
+    }, 
+    {
+        "Date_of_birth": "1971-05-18", 
+        "First_name": "Methews", 
+        "Height": "165", 
+        "Last_name": "Haiden", 
+        "Salary": 40230
+    }, 
+    {
+        "Date_of_birth": "1971-05-18", 
+        "First_name": "Elliot", 
+        "Height": "172", 
+        "Last_name": "Luca", 
+        "Salary": 40230
+    }, 
+    {
+        "Date_of_birth": "1971-05-18", 
+        "First_name": "Daniel", 
+        "Height": "190", 
+        "Last_name": "Clerk", 
+        "Salary": 40230
+    }, 
+    {
+        "Date_of_birth": "1971-05-18", 
+        "First_name": "John", 
+        "Height": "invalid string", 
+        "Last_name": "Smith", 
+        "Salary": 40230
+    }, 
+    {
+        "Date_of_birth": "1971-05-18", 
+        "First_name": "Steve", 
+        "Height": "189", 
+        "Last_name": "Finn", 
+        "Salary": 38990
+    }, 
+    {
+        "Date_of_birth": "1971-05-19", 
+        "First_name": "Nathan", 
+        "Height": "155", 
+        "Last_name": "Astle", 
+        "Salary": 41000
+    }, 
+    {
+        "Date_of_birth": "1980-08-10", 
+        "First_name": "Nathaniel", 
+        "Height": "125", 
+        "Last_name": "Stewert", 
+        "Salary": 31250
+    }, 
+    {
+        "Date_of_birth": "1981-01-19", 
+        "First_name": "Allan", 
+        "Height": "178", 
+        "Last_name": "Hernandez", 
+        "Salary": 23789
+    }, 
+    {
+        "Date_of_birth": "1982-01-29", 
+        "First_name": "Arthur", 
+        "Height": "168", 
+        "Last_name": "Harrison", 
+        "Salary": 50500
+    }, 
+    {
+        "Date_of_birth": "1982-01-29", 
+        "First_name": "Cameron", 
+        "Height": "170", 
+        "Last_name": "White", 
+        "Salary": 47450
+    }, 
+    {
+        "Date_of_birth": "1988-05-21", 
+        "First_name": "Harley", 
+        "Height": "185", 
+        "Last_name": "Smith", 
+        "Salary": 28500
+    }, 
+    {
+        "Date_of_birth": "1990-03-26", 
+        "First_name": "Michael", 
+        "Height": "152", 
+        "Last_name": "Johnson", 
+        "Salary": 25280
+    }
+]

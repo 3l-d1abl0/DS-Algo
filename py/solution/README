@@ -1,0 +1,18 @@
+balls_puzzle :
+
+Input is read from input.txt and output is written into output.txt as stated earlier
+As solution of complexicity O(KlogK) is provided
+
+
+json_operations :
+
+Output is written into output.csv with columns :
+FirstName, LastName, Dob, Salary, Height
+
+Data is sorted by attributes Dob, Salry, Height in Ascending Order
+
+
+match_your_binary_supporter :
+
+Input is read from input.txt adn output is written into output.txt
+Type of exceptions gathered from input-output pattern are taken Care.

@@ -1,0 +1,132 @@
+8
+19
+notebook 1
+pen 2
+top
+notebook 1
+top
+eraser 2
+crayon 5
+pen 3
+eraser 4
+top
+pencil 6
+pen 1
+notebook 4
+crayon 1
+top
+pencil 1
+pen 3
+pencil 2
+top
+5
+pencil 1
+paper 1
+pen 1
+eraser 1
+top
+2
+foobar 1
+top
+13
+ab 1
+ab 2
+aa 2
+ab 2
+z 1
+top
+e 2
+ab 2
+b 2
+b 1
+aaa 2
+aaa 1
+top
+25
+aaa 2
+abc 2
+a 2
+aaa 3
+d 1
+abc 3
+top
+aaa 2
+z 2
+a 2
+e 2
+abc 1
+a 3
+abc 3
+a 3
+abc 1
+top
+zz 2
+d 3
+z 3
+zz 3
+aaa 1
+z 2
+aa 2
+top
+35
+aaa 3
+ab 2
+top
+b 3
+aa 1
+a 2
+top
+abc 2
+d 1
+aaa 2
+d 2
+ab 2
+top
+e 1
+ab 1
+z 2
+abc 2
+aa 2
+a 3
+b 3
+e 2
+top
+zz 2
+top
+d 2
+e 3
+zz 2
+aa 1
+aa 2
+aa 3
+abc 2
+top
+e 1
+aaa 1
+top
+9
+abc 2
+aaa 3
+aa 2
+aa 3
+e 3
+zz 2
+z 3
+abc 3
+top
+15
+xy 1
+aa 1
+da 1
+d 1
+a 1
+z 1
+abc 1
+aaa 1
+xx 1
+ab 1
+e 1
+zz 1
+b 1
+zzz 1
+top

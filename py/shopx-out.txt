@@ -1,0 +1,21 @@
+pen
+notebook pen
+eraser
+crayon eraser notebook pen pencil
+pen pencil
+eraser paper pen pencil
+foobar
+ab
+ab
+aaa abc
+a abc
+a abc
+aaa
+aaa b
+aaa
+b
+b
+aa
+aa
+aa abc
+a aa aaa ab abc b d da e xx xy z zz zzz

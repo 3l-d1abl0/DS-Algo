@@ -1,0 +1,14 @@
+FirstName, LastName, Dob, Salary, Height
+Steve, Finn, 1971-05-18, 38990, 189
+Methews, Haiden, 1971-05-18, 40230, 165
+Elliot, Luca, 1971-05-18, 40230, 172
+Daniel, Clerk, 1971-05-18, 40230, 190
+John, Smith, 1971-05-18, 40230, invalid string
+Nathan, Astle, 1971-05-18, 41000, 155
+Nathan, Astle, 1971-05-19, 41000, 155
+Nathaniel, Stewert, 1980-08-10, 31250, 125
+Allan, Hernandez, 1981-01-19, 23789, 178
+Cameron, White, 1982-01-29, 47450, 170
+Arthur, Harrison, 1982-01-29, 50500, 168
+Harley, Smith, 1988-05-21, 28500, 185
+Michael, Johnson, 1990-03-26, 25280, 152

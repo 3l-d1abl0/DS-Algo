@@ -1,0 +1,17 @@
+
+When base class pointer is made to point a Derived Class
+-> It can exec the common function in the Base Classa
+
+=> Make the base class Function as virtual, then it will always point to the Derived class Function
+
+
+
+Constructor Order :
+
+Base First
+
+ThenDerived
+
+
+
+Destructor Order : Oposite of Constructor
