@@ -1,0 +1,9 @@
+DEBUG:root:Ignored !
+INFO:root:This should be logged
+WARNING:root:And this , too
+DEBUG:root:Ignored !
+INFO:root:This should be logged
+WARNING:root:And this , too
+DEBUG:root:Ignored !
+INFO:root:This should be logged
+WARNING:root:And this , too
