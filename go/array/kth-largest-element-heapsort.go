@@ -53,4 +53,8 @@ func findKthLargest(nums []int, k int) int {
 	return heapsort(nums[:], k, 0, len(nums)-1)
 
 	//return nums[k]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 387e9fb8ad1882e49261cfb0111086309d41f536
