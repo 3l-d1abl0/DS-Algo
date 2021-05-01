@@ -1,3 +1,7 @@
+package main
+
+import "math/rand"
+
 func partition(arr []int, lidx int, ridx int) int {
 
 	//fmt.Printf("l=%d r=%d\n", lidx, ridx)
