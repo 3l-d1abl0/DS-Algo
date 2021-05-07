@@ -74,3 +74,18 @@ class ClassTest(object):
             assert 'first.txt' in str(result.stdout), "Error while listing a folder with multiple !"
         finally:
             shutil.rmtree("c:\testfolder")
+
+
+    #Expected failure, deliberate fail
+    @staticmethod
+    @pytest.mark.xfail(reson="-y parameter does not work !")
+    def test_expected_fail():
+
+        try:
+            os.mkdir("/tmp/testfolder")
+            Path("/tmp/testfolder/first.txt").touch()
+            result = subprocess.run(['ls', '-y', '/tmp/testfolder'], stdout=subprocess.PIPE)
+            print('Result: [{}]'.format(result))
+            assert 'first.txt' in str(result.stdout), "-y parameter not implemented Yet !"
+        finally:
+            shutil.rmtree('/tmp/testfolder')
