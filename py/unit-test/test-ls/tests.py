@@ -1,5 +1,7 @@
 import os
 import sys
+import time
+import shlex
 import shutil
 import pytest
 import subprocess
@@ -89,3 +91,24 @@ class ClassTest(object):
             assert 'first.txt' in str(result.stdout), "-y parameter not implemented Yet !"
         finally:
             shutil.rmtree('/tmp/testfolder')
+
+
+    #paramaterized test, each test is tested independednet of each other
+    @staticmethod
+    @pytest.mark.parametrize("argument", ["","-r","-t","-rt"])
+    def test_order(argument):
+        try:
+            os.mkdir("/tmp/testfolder")
+            Path("/tmp/testfolder/first.txt").touch()
+            time.sleep(0.5)
+            Path("/tmp/testfolder/second.txt").touch()
+
+            command = ['ls', argument, '/tmp/testfolder']
+            argument = ' '.join(x for x in command if x !='')
+
+            result = subprocess.run( shlex.split(argument), stdout=subprocess.PIPE)
+            print(result.stdout.decode("utf-8"))
+            assert result.stdout.decode("utf-8").startswith("first.txt" if argument not in ["-rt", "-t"] else "second.txt"), "Output ls with -rt argument was Wrong !"
+
+        finally:
+            shutil.rmtree("/tmp/testfolder")
