@@ -9,6 +9,9 @@ from pathlib import Path
 
 class ClassTest(object):
 
+    def expensive_operation(self):
+        time.sleep(1)
+
     @staticmethod
     def test_list_empty_folder():
         try:
@@ -30,8 +33,8 @@ class ClassTest(object):
         finally:
             shutil.rmtree('/tmp/testfolder')
 
-    @staticmethod
-    def test_list_multiple_files():
+    def test_list_multiple_files(self):
+        self.expensive_operation()
         try:
             os.mkdir("/tmp/testfolder")
             Path("/tmp/testfolder/first.txt").touch()
@@ -44,8 +47,8 @@ class ClassTest(object):
             shutil.rmtree('/tmp/testfolder')
 
 
-    @staticmethod
-    def test_list_hidden_files():
+    def test_list_hidden_files(self):
+        self.expensive_operation()
         try:
             os.mkdir("/tmp/testfolder")
             Path("/tmp/testfolder/first.txt").touch()
@@ -57,16 +60,16 @@ class ClassTest(object):
         finally:
             shutil.rmtree('/tmp/testfolder')
 
-    
-    @staticmethod
+
     #Method 1
     @pytest.mark.skipif(not sys.platform.startswith("win"), reason="Skipping windows-only test !")
-    def test_ls_windows():
+    def test_ls_windows(self):
 
         '''Method 2
         if not sys.platform.startswith("win"):
             pytest.skip("Skipping windows only test")
         '''
+        self.expensive_operation()
 
         try:
             os.mkdir("c:\testfolder")
@@ -80,7 +83,8 @@ class ClassTest(object):
 
     #Expected failure, deliberate fail
     @staticmethod
-    @pytest.mark.xfail(reson="-y parameter does not work !")
+    @pytest.mark.notpassing
+    @pytest.mark.xfail(reason="-y parameter does not work !")
     def test_expected_fail():
 
         try:
@@ -112,3 +116,23 @@ class ClassTest(object):
 
         finally:
             shutil.rmtree("/tmp/testfolder")
+
+
+
+    # python -m pytest tests.py -k “WindowsTest”
+    @pytest.mark.skipif(not sys.platform.startswith("win"), reason="skipping windows only test")
+    class WindowsTest(object):
+
+        @staticmethod
+        @pytest.mark.notpassing
+        def test_ls_windows():
+            try:
+
+                os.mkdir("c:\testfolder")
+                Path("c:\testfolder\first.txt").touch()
+                result = subprocess.run(['dir', 'c:\testfolder'], stdout=subprocess.PIPE)
+                print("Result: [{}]".format(result))
+                assert 'first.txt' in str(result.stdout), "Error while listing a folder with multiple !"
+            finally:
+                shutil.rmtree("c:\testfolder")
+
