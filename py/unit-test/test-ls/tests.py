@@ -121,20 +121,20 @@ class ClassTest(object):
 
 
 
-    # python -m pytest tests.py -k “WindowsTest”
-    @pytest.mark.skipif(not sys.platform.startswith("win"), reason="skipping windows only test")
-    class WindowsTest(object):
+# python -m pytest tests.py -k “WindowsTest”
+@pytest.mark.skipif(not sys.platform.startswith("win"), reason="skipping windows only test")
+class WindowsTest(object):
 
-        @staticmethod
-        @pytest.mark.notpassing
-        def test_ls_windows():
-            try:
+    @staticmethod
+    @pytest.mark.notpassing
+    def test_ls_windows():
+        try:
 
-                os.mkdir("c:\testfolder")
-                Path("c:\testfolder\first.txt").touch()
-                result = subprocess.run(['dir', 'c:\testfolder'], stdout=subprocess.PIPE)
-                print("Result: [{}]".format(result))
-                assert 'first.txt' in str(result.stdout), "Error while listing a folder with multiple !"
-            finally:
-                shutil.rmtree("c:\testfolder")
+            os.mkdir("c:\testfolder")
+            Path("c:\testfolder\first.txt").touch()
+            result = subprocess.run(['dir', 'c:\testfolder'], stdout=subprocess.PIPE)
+            print("Result: [{}]".format(result))
+            assert 'first.txt' in str(result.stdout), "Error while listing a folder with multiple !"
+        finally:
+            shutil.rmtree("c:\testfolder")
 
