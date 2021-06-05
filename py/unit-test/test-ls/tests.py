@@ -100,6 +100,7 @@ class ClassTest(object):
     #paramaterized test, each test is tested independednet of each other
     @staticmethod
     @pytest.mark.parametrize("argument", ["","-r","-t","-rt"])
+    #"argument" -> argument variable, [] -> actual params values
     def test_order(argument):
         try:
             os.mkdir("/tmp/testfolder")
@@ -110,6 +111,7 @@ class ClassTest(object):
             command = ['ls', argument, '/tmp/testfolder']
             argument = ' '.join(x for x in command if x !='')
 
+            print("argument = ", argument)
             result = subprocess.run( shlex.split(argument), stdout=subprocess.PIPE)
             print(result.stdout.decode("utf-8"))
             assert result.stdout.decode("utf-8").startswith("first.txt" if argument not in ["-rt", "-t"] else "second.txt"), "Output ls with -rt argument was Wrong !"
