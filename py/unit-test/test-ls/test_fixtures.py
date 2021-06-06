@@ -11,23 +11,18 @@ class ClassTest(object):
 
     testfolder_path = "/tmp/testfolder_{}".format(str(os.environ.get("PYTEST_XDIST_WORKER")))
 
-    @pytest.fixture
-    def temp_folder(self):
-        return "/tmp/testfolder_{}".format(str(os.environ.get("PYTEST_XDIST_WORKER")))
-
-    def expensive_operation(self):
-        time.sleep(1)
-
-    def setup(self):
-        print("setup")
-        print(self.testfolder_path)
+    @pytest.fixture(scope="function", autouse=True)
+    def temp_folder(self, request):
+        print("Setup")
         if not os.path.exists(self.testfolder_path):
             os.mkdir(self.testfolder_path)
 
-    def teardown(self):
-        print("Teardown")
-        if os.path.exists(self.testfolder_path):
-            shutil.rmtree(self.testfolder_path)
+        def fin():
+            print("Teardown")
+            if os.path.exists(self.testfolder_path):
+                shutil.rmtree(self.testfolder_path)
+
+        request.addfinalizer(fin)
 
     def expensive_operation(self):
         time.sleep(1)
@@ -40,13 +35,13 @@ class ClassTest(object):
         
 
     #@pytest.mark.usefixtures("afixture")
-    def test_simple_ls(self, temp_folder):
+    def test_simple_ls(self):
 
-        Path(str(temp_folder)+"/first.txt").touch()
-        result = subprocess.run(['ls', temp_folder], stdout=subprocess.PIPE)
+        Path(self.testfolder_path+"/first.txt").touch()
+        result = subprocess.run(['ls', self.testfolder_path], stdout=subprocess.PIPE)
         print('Result: [{}]'.format(result))
         assert 'first.txt' in str(result.stdout), "Error while listing a folder with one file !"
-        print("Fixture returned = {}".format(temp_folder))
+
         
 
     def test_list_multiple_files(self):
