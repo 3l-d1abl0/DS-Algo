@@ -12,9 +12,8 @@ class ClassTest(object):
     testfolder_path = "/tmp/testfolder_{}".format(str(os.environ.get("PYTEST_XDIST_WORKER")))
 
     @pytest.fixture
-    def afixture(self):
-        print("A fixture has run !")
-        return 42
+    def temp_folder(self):
+        return "/tmp/testfolder_{}".format(str(os.environ.get("PYTEST_XDIST_WORKER")))
 
     def expensive_operation(self):
         time.sleep(1)
@@ -41,13 +40,13 @@ class ClassTest(object):
         
 
     #@pytest.mark.usefixtures("afixture")
-    def test_simple_ls(self, afixture):
+    def test_simple_ls(self, temp_folder):
 
-        Path(self.testfolder_path+"/first.txt").touch()
-        result = subprocess.run(['ls', self.testfolder_path], stdout=subprocess.PIPE)
+        Path(str(temp_folder)+"/first.txt").touch()
+        result = subprocess.run(['ls', temp_folder], stdout=subprocess.PIPE)
         print('Result: [{}]'.format(result))
         assert 'first.txt' in str(result.stdout), "Error while listing a folder with one file !"
-        print("Fixture returned = {}".format(afixture))
+        print("Fixture returned = {}".format(temp_folder))
         
 
     def test_list_multiple_files(self):
