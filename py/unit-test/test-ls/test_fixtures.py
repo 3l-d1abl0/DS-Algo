@@ -11,34 +11,21 @@ class ClassTest(object):
 
     testfolder_path = "/tmp/testfolder_{}".format(str(os.environ.get("PYTEST_XDIST_WORKER")))
 
-    @pytest.fixture(scope="function", autouse=True)
-    def temp_folder(self, request):
-        print("Setup")
-        if not os.path.exists(self.testfolder_path):
-            os.mkdir(self.testfolder_path)
-
-        def fin():
-            print("Teardown")
-            if os.path.exists(self.testfolder_path):
-                shutil.rmtree(self.testfolder_path)
-
-        request.addfinalizer(fin)
-
     def expensive_operation(self):
         time.sleep(1)
 
-    def test_list_empty_folder(self):
+    def test_list_empty_folder(self, tmp_path):
 
-        result = subprocess.run(['ls', self.testfolder_path], stdout=subprocess.PIPE)
+        result = subprocess.run(['ls', str(tmp_path)], stdout=subprocess.PIPE)
         print(str(result.stdout))
         assert not result.stdout, "Error while listing folder"
         
 
     #@pytest.mark.usefixtures("afixture")
-    def test_simple_ls(self):
+    def test_simple_ls(self, tmp_path):
 
-        Path(self.testfolder_path+"/first.txt").touch()
-        result = subprocess.run(['ls', self.testfolder_path], stdout=subprocess.PIPE)
+        Path(str(tmp_path)+"/first.txt").touch()
+        result = subprocess.run(['ls', str(tmp_path)], stdout=subprocess.PIPE)
         print('Result: [{}]'.format(result))
         assert 'first.txt' in str(result.stdout), "Error while listing a folder with one file !"
 
