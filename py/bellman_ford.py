@@ -36,19 +36,25 @@ class Graph(object):
 
 if __name__ == '__main__':
 
-    number_of_edges = 5
-    number_of_nodes = 5
-
     #directed Graph
-    edges =[
-            [1, 2],
-            [1, 3],
-            [3, 4],
-            [1, 4],
-            [3, 5]
-        ]
+    '''
+    number_of_nodes = 5
+    number_of_edges = 5
 
+    edges =[ [1, 2], [1, 3], [3, 4], [1, 4], [3, 5] ]
     weights = [ 5, 2, 1, 6, 5 ]
+
+
+    number_of_nodes = 5
+    number_of_edges = 7
+    edges = [ [0,1], [0,2], [1,2], [0,3], [3,4], [4,3], [2,4] ]
+    weights = [ 4, 5, -3, 8, 2, 1, 4]
+    '''
+
+    number_of_nodes = 6
+    number_of_edges = 8
+    edges = [ [4,5], [3,4], [2,5], [0,2], [1,2], [5,4], [0,3], [0,1] ];
+    weights = [ 2, 2, 4,5,-3,1,6,4 ];
 
     g = Graph(number_of_edges, number_of_nodes, edges, weights);
 
