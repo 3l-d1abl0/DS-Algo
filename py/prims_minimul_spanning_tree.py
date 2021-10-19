@@ -1,4 +1,5 @@
 import sys
+import heapq
 from queue import PriorityQueue
 from collections import defaultdict
 
@@ -12,7 +13,8 @@ class Graph(object):
         self.weights = weights
         #adjceny list
         self.adj = defaultdict(list)
-        self.pq = PriorityQueue()
+        #self.pq = PriorityQueue()
+        self.pq = []
         self.mst = [False] *self.number_of_nodes
         #self.distance = [sys.maxsize] *self.number_of_nodes
         self.distance = list()
@@ -27,11 +29,14 @@ class Graph(object):
 
     def prims(self, vertex):
 
-        self.pq.put((0, vertex))
+        #self.pq.put((0, vertex))
+        heapq.heappush(self.pq, (0, vertex))
 
-        while not self.pq.empty():
+        #while not self.pq.empty():
+        while self.pq:
 
-            current_node = self.pq.get()
+            #current_node = self.pq.get()
+            current_node = heapq.heappop(self.pq)
 
             if self.mst[current_node[1]] is False:
 
@@ -40,7 +45,8 @@ class Graph(object):
 
                 for node in self.adj[current_node[1]]:
                     if self.mst[node[1]] == False:
-                        self.pq.put((node[0], node[1]))
+                        #self.pq.put((node[0], node[1]))
+                        heapq.heappush(self.pq, (node[0], node[1]))
 
     def display_mst(self):
 
@@ -63,7 +69,7 @@ if __name__ == '__main__':
     O(ElogV)
     '''
 
-    '''
+    
     edges = [ [0,7],[2,3],[1,7],[0,2],
                       [5,7],[1,3],[1,5],[2,7],
                       [4,5],[1,2],[4,7],[0,4],
@@ -76,15 +82,15 @@ if __name__ == '__main__':
 
     number_of_nodes = 8
     number_of_edges = len(weights)
-    '''
 
-    
+
+    '''
     edges = [ [0,1], [0,4], [0,7], [1,2], [1,3], [1,7], [2,3], [2,6], [3,6], [4,5], [4,6], [4,7], [5,2], [5,6], [7,5], [7,2] ];
     weights = [5, 9, 8, 12, 15, 4, 3, 11, 9, 4, 20, 5, 1, 13, 6, 7];
 
     number_of_nodes = 8
     number_of_edges = len(weights)
-
+    '''
 
     '''
     edges = [ [0,1], [1,2], [2,3], [3,4], [4,5], [0,3], [0,4] ];
