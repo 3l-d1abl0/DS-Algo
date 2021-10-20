@@ -25,6 +25,23 @@ def closestValueInTree(root, target, closestValue):
         #print("2. return = {}".format(closestValue))
         return closestValue
 
+
+def closestValueInItrTree(root, target, closestValue):
+    node = root
+    while node is not None:
+
+        if abs(target-node.key) < abs(closestValue-node.key):
+            closestValue = node.key
+
+        if node is not None and target > node.key:
+            node = node.right
+        elif node is not None and target < node.key:
+            node = node.left
+        else:
+            return closestValue
+
+    return closestValue
+
 if __name__ == '__main__':
 
     root = BinaryTree(10)
@@ -40,3 +57,9 @@ if __name__ == '__main__':
     #Average : O(Log(n)) time | O(Log(n)) space
     #Worst: O(n) time | O(n) space
     print(closestValueInTree(root, 12, float("inf")))
+
+    '''
+    Iterative : Average : O(Log(n)) time | O(1) space
+                Worst : O(n) time | O(1) space
+    '''
+    print(closestValueInItrTree(root, 12, float("inf")))
