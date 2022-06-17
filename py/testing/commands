@@ -1,0 +1,23 @@
+python -m pytest -v
+
+export PYTHONPATH="${PYTHONPATH}:/media/eldiablo/P1/codebase/py/testing/pytest/dataStructure"
+
+pip3 install pytest-cov
+
+python3 -m pytest -v --cov=/media/eldiablo/P1/codebase/py/testing/pytest/dataStructure tests/
+
+
+py.test
+
+pytest -v -s
+
+python -m unittest discover
+
+https://github.com/atinfo/awesome-test-automation
+
+https://github.com/PacktPublishing/Automated-Software-Testing-with-Python
+
+virtualenv -p python3 venev
+source venv/bin/activate
+
+pip install -r req.txt
